@@ -1,0 +1,109 @@
+watcher-metering-agent:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Metering Agent"
+  hostname: watcher-metering-agent
+  image: watcher/metering-agent:latest
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+
+watcher-metering-publisher:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Metering Publisher"
+  hostname: watcher-metering-publisher
+  image: watcher/metering-publisher:latest
+  environment:
+    SERVICE_12345_NAME: watcher-metering-publisher
+    # METRICS_DATACENTER: watcher-ti-metering
+    # USE_NANOCONFIG_SERVICE: true
+    # NANOCONFIG_PUBLISHER_PROFILE: nanoconfig://watcher-metering-publisher
+    # NANOCONFIG_SERVICE_ENDPOINT: tcp://nanoconfig.service.watcher.b-com.com:10800
+    # NANOCONFIG_UPDATE_ENDPOINT: tcp://nanoconfig.service.watcher.b-com.com:10900
+    # RIEMANN_STORE_ENDPOINT: tcp://riemann.service.watcher.b-com.com:5555
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  # ports:
+  #   - 12345:12345
+
+nanoconfig-server:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Nanoconfig Server"
+  hostname: nanoconfig-server
+  image: watcher/nanoconfig-server:latest
+  environment:
+    SERVICE_10800_NAME: nanoconfig
+    SERVICE_10900_NAME: nanoconfig
+    # WATCHER_METERING_PUBLISHER_ENDPOINT: tcp://192.168.1.30:12345
+    # NANOCONFIG_AGENT_PROFILE: nanoconfig://watcher-metering-agent
+    # NANOCONFIG_PUBLISHER_PROFILE: nanoconfig://watcher-metering-publisher
+  ports:
+    - 10800:10800
+    - 10900:10900
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+
+riemann:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Riemann CEP Service"
+  hostname: riemann
+  image: watcher/riemann:latest
+  environment:
+    SERVICE_5555_NAME: riemann
+    # INFLUXDB_HOST: influxdb.service.watcher.b-com.com
+    # INFLUXDB_PORT: 8086
+    # INFLUXDB_USERNAME: root
+    # INFLUXDB_PASSWORD: root
+    # INFLUXDB_DB: watcher_metrics  
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+
+influxdb:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "InfluxDB Time Serie Database"
+  hostname: influxdb
+  image: watcher/influxdb:latest
+  environment:
+    SERVICE_8086_NAME: influxdb
+    # INFLUXDB_VERSION: 0.9.2
+    # INFLUXDB_PASSWORD: root
+    # INFLUXDB_USERNAME: root
+    # INFLUXDB_CONFDIR: /etc/opt/influxdb
+    # INFLUXDB_PORT: 8086
+    # PURGE_DATADIR: 1
+    # PRE_CREATE_DB: watcher_metrics
+    # REPLICATION_FACTOR: 1
+  volumes:
+   - /opt/datanode
+  ports:
+    - 8083:8083
+    - 8086:8086
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+
+grafana:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Grafana Metrics Dashboard"
+  hostname: grafana
+  image: watcher/grafana:latest
+  environment:
+    SERVICE_3000_NAME: grafana
+    # INFLUXDB_HOST: influxdb.service.watcher.b-com.com
+    # INFLUXDB_PORT: 8086
+    # INFLUXDB_USERNAME: root
+    # INFLUXDB_PASSWORD: root
+    # INFLUXDB_DB: watcher_metrics  
+  ports:
+    - 3000:3000
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node

@@ -1,0 +1,36 @@
+consul:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Service Discovery for TI"
+  hostname: consul
+  image: progrium/consul:latest
+  environment:
+    SERVICE_NAME: consul
+  command: -server -dc=watcher -domain=b-com.com -bootstrap -ui-dir /ui
+  volumes_from: 
+    - consuldata
+  ports:
+    - 8500:8500
+    - 172.17.42.1:53:53/udp
+
+consuldata:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Service Discovery Data for TI"
+  image: progrium/busybox
+  hostname: consuldata
+  command: /bin/sh -c 'rm -rf /data/*'
+  volumes: 
+    - /data
+
+registrator:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Service Registrator for TI"
+  image: gliderlabs/registrator:v6
+  hostname: registrator
+  command: -internal consul://consul:8500  
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  links:
+   - consul:consul
