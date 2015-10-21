@@ -1,0 +1,11 @@
+# Docker Compose settings for consul cluster and registrator
+# By default, docker0 interface will have the IP 172.17.42.1
+#   If this IP is already in use, docker daemon will choose another one:
+#   be careful to replace new docker0 interface IP below if so.
+
+registry-node:
+  dns:
+    - 172.17.42.1
+  dns_search:
+    - service.watcher.b-com.com
+
