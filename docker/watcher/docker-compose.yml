@@ -1,0 +1,203 @@
+# Watcher containers for Integration Tests 
+
+mariadb:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Database for Watcher and Keystone"
+  environment:
+    SERVICE_NAME: mariadb
+  image: watcher/mariadb:latest
+  hostname: mariadb
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node   
+  expose:
+    - "22"
+    - "3306"
+  ports:
+    - "10022:22/tcp"
+    - "13306:3306/tcp"
+
+rabbitmq:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Rabbitmq Server"
+  environment:
+    SERVICE_NAME: rabbitmq
+  image: watcher/rabbitmq:latest
+  hostname: rabbitmq
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+    - "5672"
+  ports:
+    - "10122:22/tcp"
+    - "15672:5672/tcp"
+
+keystone:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Keystone Identity Service"
+  environment:
+    SERVICE_NAME: keystone
+  image: watcher/keystone:latest
+  hostname: keystone
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+    - "5000"
+    - "35357"
+  ports:
+    - "10222:22/tcp"
+    - "5000:5000/tcp"
+    - "35357:35357/tcp"
+
+
+console:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Console"
+  environment:
+    SERVICE_NAME: console
+    # KEYSTONE_NODE: 
+    # KEYSTONE_ADMIN_TOKEN: 
+    # KEYSTONE_SERVICE_TENANT_NAME: 
+    # WATCHER_API_NODE:
+    # OS_IDENTITY_API_VERSION: 
+    # OS_PROJECT_DOMAIN_ID: 
+    # OS_USER_DOMAIN_ID:
+    # OS_USERNAME: 
+    # OS_PASSWORD:
+    # OS_PROJECT_NAME:
+    # EXIT_AFTER_INIT:
+  image: watcher/console:latest
+  hostname: console
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+  ports:
+    - "10322:22/tcp"
+
+api:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher API service"
+  environment:
+    SERVICE_NAME: watcher
+    # KEYSTONE_NODE: 
+    # KEYSTONE_SERVICE_TENANT_NAME: 
+    # MARIADB_NODE: 
+    # WATCHER_MESSAGING_USER:
+    # WATCHER_MESSAGING_PASSWORD:
+    # WATCHER_MESSAGING_HOST:
+    # WATCHER_MESSAGING_PORT:
+    # DEBUG_MODE: true
+    # VERBOSE_MODE: true
+  image: watcher/api:latest
+  hostname: watcher_api
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+    - "9322"
+  ports:
+    - "10422:22/tcp"
+    - "9322:9322/tcp"
+
+decision-engine:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Decision Engine service"
+  environment:
+    SERVICE_IGNORE: fake
+    # KEYSTONE_NODE: 
+    # KEYSTONE_SERVICE_TENANT_NAME: 
+    # MARIADB_NODE: 
+    # WATCHER_MESSAGING_USER:
+    # WATCHER_MESSAGING_PASSWORD:
+    # WATCHER_MESSAGING_HOST:
+    # WATCHER_MESSAGING_PORT:
+    # INFLUXDB_NODE: 
+    # DEBUG_MODE: 
+    # VERBOSE_MODE: 
+  image: watcher/decision-engine:latest
+  hostname: watcher_de
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+  ports:
+    - "10522:22/tcp"
+
+
+applier:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Applier Service"
+  environment:
+    SERVICE_IGNORE: fake
+    # KEYSTONE_NODE: 
+    # KEYSTONE_SERVICE_TENANT_NAME: 
+    # MARIADB_NODE: 
+    # WATCHER_MESSAGING_USER:
+    # WATCHER_MESSAGING_PASSWORD:
+    # WATCHER_MESSAGING_HOST:
+    # WATCHER_MESSAGING_PORT:
+    # DEBUG_MODE: 
+    # VERBOSE_MODE: 
+  image: watcher/applier:latest
+  hostname: watcher_applier
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+  ports:
+    - "10622:22/tcp"
+
+horizon:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Horizon OpenStack Dashboard with Watcher plugin"
+  environment:
+    SERVICE_NAME: horizon
+    # KEYSTONE_NODE: 
+  image: watcher/ui
+  hostname: horizon
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+    - "8000"
+  ports:
+    - "8000:8000"
+    - "10722:22/tcp"
+
+# tempest:
+#   environment:
+#     PASS: root
+#     DATACENTERNAME: indeed
+#     SERVICENAME:
+#     REGISTER_SERVICE: consul
+#     IAAS_IP: keystone.node.indeed.consul
+#     IAAS_REGION: RegionOne
+#   image: indeed/tempest
+#   hostname: tempest
+#   dns:
+#     - consul
+#     - 10.1.10.10
+#   dns_search:
+#     - node.indeed.consul
+#   links:
+#     - serviceregistry:consul
+#   expose:
+#     - "22"
