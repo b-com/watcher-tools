@@ -1,0 +1,1399 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab29df4_0f740bce",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Ne faudrait-il pas ajouter un paragraphe qui indique avec quelles versions de Docker, Docker-Compose, Ubuntu l\u0027installation a été testée et validée ?",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_2f81cf8f",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Pourquoi un saut à la ligne ici ?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 13
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_6f4ae784",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Pourquoi un saut à la ligne ici ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_324bf45a",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Ajout un apt-get update\navant ?",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_5248685b",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "If you would like to use Docker as a non-root user, you should now consider\nadding your user to the \"docker\" group with something like:\n\n  sudo usermod -aG docker \u003cyour_non_root_user\u003e\n\nRemember that you will have to log out and back in for this to take effect!\n\nYou may also need to reboot for the changes to take effect",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_326214d9",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Ajouter au préalable un :\n$ docker --version\npour s\u0027assurer que les commandes Docker sont bien prises en compte et pour vérifier la version de Docker.",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f2aedce6",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Erreur sur la ligne de commande. Il y a une parenthèse en trop ici.\nMettre ceci :\nsudo curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` \u003e /usr/local/bin/docker-compose",
+      "range": {
+        "startLine": 46,
+        "startChar": 87,
+        "endLine": 46,
+        "endChar": 88
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_72e9ec19",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "independent but it is advised to start the SERVICE_DISCOVERY first.",
+      "range": {
+        "startLine": 59,
+        "startChar": 27,
+        "endLine": 59,
+        "endChar": 38
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_32b9342f",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Mettre \"Decision Engine\" en toutes lettres car pas clair sinon",
+      "range": {
+        "startLine": 67,
+        "startChar": 93,
+        "endLine": 67,
+        "endChar": 95
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_52b6a83e",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "It provides (ne pas oublier le \u0027s\u0027)",
+      "range": {
+        "startLine": 69,
+        "startChar": 112,
+        "endLine": 69,
+        "endChar": 119
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_92876061",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "also builds",
+      "range": {
+        "startLine": 70,
+        "startChar": 62,
+        "endLine": 70,
+        "endChar": 72
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_d281d84b",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Database",
+      "range": {
+        "startLine": 77,
+        "startChar": 34,
+        "endLine": 77,
+        "endChar": 36
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f295fc88",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Metering Agent(s) and Metering Publisher(s)",
+      "range": {
+        "startLine": 78,
+        "startChar": 113,
+        "endLine": 78,
+        "endChar": 132
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_129350a4",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "sent by Metering Agents, before they are pushed to Ceilometer or to the Time Serie Database",
+      "range": {
+        "startLine": 79,
+        "startChar": 92,
+        "endLine": 79,
+        "endChar": 149
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_32905495",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Mettre plutôt \"compute node\", non ?",
+      "range": {
+        "startLine": 80,
+        "startChar": 88,
+        "endLine": 80,
+        "endChar": 92
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_528dc87a",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Database",
+      "range": {
+        "startLine": 81,
+        "startChar": 99,
+        "endLine": 81,
+        "endChar": 101
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_d22b982e",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "tools (avec un \u0027s\u0027 car il y en a plusieurs)",
+      "range": {
+        "startLine": 86,
+        "startChar": 26,
+        "endLine": 86,
+        "endChar": 30
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_12da7078",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Ne faut-il pas ajouter ici la commande de clonage du repo Git public contenant ce README.md ?\nLes gens peuvent très bien lire le README.md sans avoir encore cloné le repo Git.",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_920a00d1",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/service_discovery",
+      "range": {
+        "startLine": 91,
+        "startChar": 6,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_722c8c4b",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Ajouter un contrôle de bon fonctionnement du genre :\n\n\"\nMake sure the service discovery containers are up and running :\n$ docker ps\nyou should be able to see the list of containers mentioned in the previous paragraph for SERVICE\\_DISCOVERY.\n\nYou can also connect with a web browser to the Consul Dashboard which is now hosted on your own machine : http://localhost:8500\n\"",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f21fbc07",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "mettre docker/watcher/README.md",
+      "range": {
+        "startLine": 97,
+        "startChar": 25,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_b2f38409",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Watcher",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 99,
+        "endChar": 15
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_121d1010",
+        "filename": "docker/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "mettre docker/metering/README.md",
+      "range": {
+        "startLine": 101,
+        "startChar": 25,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_bd7355b0",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "at",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_dd6729e9",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "you",
+      "range": {
+        "startLine": 7,
+        "startChar": 65,
+        "endLine": 7,
+        "endChar": 67
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_fd64ede6",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Pour l\u0027instant le lien n\u0027affiche rien",
+      "range": {
+        "startLine": 11,
+        "startChar": 34,
+        "endLine": 11,
+        "endChar": 88
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_9da5b106",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Pour ce paragraphe, reprendre mes remarques sur le docker/README.md principal à ce sujet. On peut peut-être aussi mettre juste un lien vers ce README.md parent qui explique déjà comment installer Docker et Docker-compose.\nPar ailleurs, dans le fichier docker/watcher/README.md, on ne parle plus de l\u0027install de Docker et Docker-compose donc il faut être cohérent entre les deux.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_ddc3a988",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Erreur sur la ligne de commande. Il y a une parenthèse en trop ici.\nMettre ceci :\nsudo curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` \u003e /usr/local/bin/docker-compose",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 146
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_bdaa75d2",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Je mettrais plutôt :\nThis installation procedure will help you deploy the following Docker containers using a Docker compose description file:",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_1de7e141",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Watcher Metering Agent container",
+      "range": {
+        "startLine": 51,
+        "startChar": 65,
+        "endLine": 51,
+        "endChar": 87
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_3de4a53a",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "For non-dev infrastructure (QA, Production, ...), you\u0027d rather deploy the metering agent via the pip utility because it does not oblige you to install docker and docker compose to all the  compute nodes of your Openstack infrastructure.",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_fdab0dd4",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/metering",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_1db9a12e",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "yml",
+      "range": {
+        "startLine": 57,
+        "startChar": 27,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_7dee1d24",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "vi docker/metering/docker-compose.yml",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_dddc8977",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/metering",
+      "range": {
+        "startLine": 88,
+        "startChar": 6,
+        "endLine": 88,
+        "endChar": 17
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_521788ed",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Je mettrais plutôt :\nThis installation procedure will help you deploy the following Docker containers using a Docker compose description file:",
+      "range": {
+        "startLine": 5,
+        "startChar": 4,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_b2dd4445",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "docker/watcher/docker-compose.yml",
+      "range": {
+        "startLine": 16,
+        "startChar": 10,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f2da5ce8",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Some Watcher components need to connect to the following Openstack components:\n     - mariadb,\n     - rabbitmq,\n     - keystone\nFor each of these Openstack components you have two possible options:\n     - either you leave the *docker-compose.yml* file unchanged so that Watcher components connect to the containers deployed by Docker compose on the same host,\n     - or you configure the *docker-compose.yml* file so that Watcher components connect to an already existing Openstack controller",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_d2d638c5",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "If you want to connect to an existing Openstack Identity Service Keystone",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_324e94c2",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd /docker/watcher",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_12519062",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "docker-compose.yml",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f276dcd7",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "plutôt \"environment variables\", non ?",
+      "range": {
+        "startLine": 26,
+        "startChar": 37,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_127430ce",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "following",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_92ccc037",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "être plus général et mettre \"Openstack controller\" plutôt que \"DevStack\"",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 15
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_72c72c13",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "ne devrait-on pas être plus général et mettre \"to use an existing Openstack MariaDb database (Devstack, ...)\" ?",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 24
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_32813490",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "If you want to connect to an existing MariaDB SQL database",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_72ee4c8d",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/watcher",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_72956ce3",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "following",
+      "range": {
+        "startLine": 62,
+        "startChar": 25,
+        "endLine": 62,
+        "endChar": 29
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_527ea8af",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "If you want to connect to an existing RabbitMQ server",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 40
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_92f3e072",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/watcher",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 19
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f2017c3a",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "yml",
+      "range": {
+        "startLine": 80,
+        "startChar": 27,
+        "endLine": 80,
+        "endChar": 30
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_32fcd43e",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "following",
+      "range": {
+        "startLine": 85,
+        "startChar": 25,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_52eea8ed",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "If you want ...",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 3
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_b2e8e47d",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/watcher",
+      "range": {
+        "startLine": 100,
+        "startChar": 9,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_d2ed588d",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "yml",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 101,
+        "endChar": 30
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_12ffd035",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "variables (avec un s car il y en a plusieurs)",
+      "range": {
+        "startLine": 103,
+        "startChar": 42,
+        "endLine": 103,
+        "endChar": 50
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_52f9484c",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "following",
+      "range": {
+        "startLine": 103,
+        "startChar": 25,
+        "endLine": 103,
+        "endChar": 29
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f2889cc8",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "containers",
+      "range": {
+        "startLine": 111,
+        "startChar": 17,
+        "endLine": 111,
+        "endChar": 25
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_d2a47859",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "cd docker/watcher",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 14
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_72bc8c6d",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "especially live migrations",
+      "range": {
+        "startLine": 145,
+        "startChar": 18,
+        "endLine": 145,
+        "endChar": 19
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_529068ec",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "http://docs.openstack.org/admin-guide-cloud/compute-configuring-migrations.html",
+      "range": {
+        "startLine": 149,
+        "startChar": 38,
+        "endLine": 149,
+        "endChar": 133
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_5255c81b",
+        "filename": "docker/watcher/docker-compose.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "Ne faudrait-il pas figer les versions des containers plutôt que de prendre /latest ?\nComment va t\u0027on gérer cette partie quand il s\u0027agira d\u0027une version Release taguée de Watcher que les gens voudront déployer avec Docker ?",
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_125b5055",
+        "filename": "docker/watcher/docker-compose.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-21T13:53:05Z",
+      "side": 1,
+      "message": "A quoi sert le préfixe \"com.b-com.wacher.\" ici ?",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 21
+      },
+      "revId": "53f5a87ecc5cfdef13f6eea9518a1346580030ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
