@@ -1,0 +1,624 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab29df4_7e09b394",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "has",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_fef4e388",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Series",
+      "range": {
+        "startLine": 89,
+        "startChar": 28,
+        "endLine": 89,
+        "endChar": 33
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_def71f8b",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Series",
+      "range": {
+        "startLine": 91,
+        "startChar": 169,
+        "endLine": 91,
+        "endChar": 174
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_be034b72",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Series",
+      "range": {
+        "startLine": 93,
+        "startChar": 93,
+        "endLine": 93,
+        "endChar": 98
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_dedabfe8",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "service_discovery \nAttention, c\u0027est un underscore et pas un tiret",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_1efc373e",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "You should be able to see docker fetching the needed Docker images and starting the containers necessary for the Service Discovery used by some Watcher components.\n\nYou can view the list of started containers very easily:\n    $ docker ps",
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_3ef9fb4d",
+        "filename": "docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "also connect",
+      "range": {
+        "startLine": 110,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 15
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_fe9f834e",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "If",
+      "range": {
+        "startLine": 17,
+        "startChar": 71,
+        "endLine": 17,
+        "endChar": 73
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_1ead1789",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "*docker-compose.yml*",
+      "range": {
+        "startLine": 34,
+        "startChar": 302,
+        "endLine": 34,
+        "endChar": 315
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_7ebb73c4",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "à supprimer car deux fois le mot \"file\"",
+      "range": {
+        "startLine": 44,
+        "startChar": 124,
+        "endLine": 44,
+        "endChar": 128
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_9eb047df",
+        "filename": "docker/metering/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "messages",
+      "range": {
+        "startLine": 44,
+        "startChar": 192,
+        "endLine": 44,
+        "endChar": 199
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_3eef3bb2",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Ajouter peut-être le même topo a début que pour watcher-metering :\n\nInstall docker and docker compose\n---------------------------------\n\nWe suppose you have already installed docker and docker-compose tools. if not, please read this [README] part.\n\n [README]: https://github.com/b-com/watcher-tools/tree/master/docker#install-docker-and-docker-compose\n\nPeut-être aussi dire qu\u0027il est conseillé d\u0027avoir déployé le Service Discovery au préalable et mettre un lien vers le README.md parent qui décrit comment faire.",
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_de7b9f27",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "yml",
+      "range": {
+        "startLine": 15,
+        "startChar": 40,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_5e95cfe2",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Keystone IP address. You should put here an IP address which is accessible (via HTTP \u0026 HTTPS) from the host where you want to install Watcher core components.",
+      "range": {
+        "startLine": 38,
+        "startChar": 31,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_1e9357fb",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "*). You should be able to find this token in the */etc/keystone/keystone.conf* file of your Openstack controller (see property *admin_token*).",
+      "range": {
+        "startLine": 39,
+        "startChar": 85,
+        "endLine": 39,
+        "endChar": 87
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_7231e7eb",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "*. This value makes sense when you install Watcher in a Docker environment because Consul will create a DNS entry corresponding to the Watcher API endpoint). If you plan to use Watcher CLI from a distant admin host, you should replace this value with an IP or a FQDN which is visible (i.e. HTTP and HTTPS protocols are accessible) from this admin host.",
+      "range": {
+        "startLine": 44,
+        "startChar": 93,
+        "endLine": 44,
+        "endChar": 95
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_12d18bfb",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Il manque le OS_AUTH_URL dans le fichier docker-compose.yml ! Est-ce que c\u0027est parce que ce paramètre a disparu ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 21
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_d2e713e3",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "*. This value makes sense when you install Watcher in a Docker environment because Consul will create a DNS entry corresponding to the keystone container deployed by Docker Compose). If you plan to connect to a distant Openstack Controller, you should replace this value with an IP or a FQDN which is visible (i.e. HTTP and HTTPS protocols are accessible) from the host where you intend to install Watcher core components.",
+      "range": {
+        "startLine": 49,
+        "startChar": 125,
+        "endLine": 49,
+        "endChar": 126
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_b2529f11",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": ". You should put here an IP address which is accessible (via TCP/UDP Port 3306 protocol) from the host where you want to install Watcher core components.\n\nIndiquer la valeur par défaut peut-être ?",
+      "range": {
+        "startLine": 71,
+        "startChar": 52,
+        "endLine": 71,
+        "endChar": 53
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_323e8fb9",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": ". You should put here an IP address which is accessible (on port 5672) from the host where you want to install Watcher core components.",
+      "range": {
+        "startLine": 96,
+        "startChar": 58,
+        "endLine": 96,
+        "endChar": 59
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f27337af",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Théoriquement, il faudrait ajouter une section :\n\nIf you want to connect to an existing InfluxDB server :\n-------------------------------------------------------\n\ncar il y une variable d\u0027environnement INFLUXDB_NODE dans le fichier docker-compose.yml que l\u0027on peut customiser.",
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_be9eeb54",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "View the list of running containers on your machine",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 43
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_dea2bf99",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "(i.e. open an interactive bash session in this container)",
+      "range": {
+        "startLine": 134,
+        "startChar": 50,
+        "endLine": 134,
+        "endChar": 51
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_52f2239b",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "il manque un tild ~ ici",
+      "range": {
+        "startLine": 139,
+        "startChar": 21,
+        "endLine": 139,
+        "endChar": 23
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_72ef27b1",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "il manque un tild ~ ici",
+      "range": {
+        "startLine": 141,
+        "startChar": 21,
+        "endLine": 141,
+        "endChar": 23
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_12f8ab7b",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Note that it is normal that there is no audit listed in the first place because you haven\u0027t launched any Audit yet :-)\n\nIf there is any issue with the Watcher CLI, you may add the *--debug* option to get more information about what Watcher is doing:\n\n        root@console:~# watcher --debug audit-list\n\nYou can also view the list of available optimization goals and their associated strategy:\n\n        root@console:~# watcher goal-list\n        +-----------------------------+----------+\n        | Name                        | Strategy |\n        +-----------------------------+----------+\n        | SERVERS_CONSOLIDATION       | basic    |\n        | MINIMIZE_ENERGY_CONSUMPTION | basic    |\n        | BALANCE_LOAD                | basic    |\n        | MINIMIZE_LICENSING_COST     | basic    |\n        | PREPARE_PLANNED_OPERATION   | basic    |\n        +-----------------------------+----------+\nYou may also create a new Audit Template in order to make sure that Watcher manages to write some data to the MariaDB database:\n\n        root@console:~# watcher audit-template-create my_first_audit MINIMIZE_ENERGY_CONSUMPTION\n\n        root@console:~# watcher audit-template-list\n        +--------------------------------------+----------------+\n        | UUID                                 | Name           |\n        +--------------------------------------+----------------+\n        | 4deea72b-00e7-4385-9800-9a9dd8b49b70 | my_first_audit |\n        +--------------------------------------+----------------+",
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_f2033771",
+        "filename": "docker/watcher/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "all your compute nodes",
+      "range": {
+        "startLine": 152,
+        "startChar": 13,
+        "endLine": 152,
+        "endChar": 27
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_52db031b",
+        "filename": "docker/watcher/docker-compose.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1006582
+      },
+      "writtenOn": "2015-10-22T12:00:04Z",
+      "side": 1,
+      "message": "Il manque le OS_AUTH_URL (en commentaire) mentionné dans le fichier docker/watcher/README.md",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 31
+      },
+      "revId": "6f01b8331eb3f9322e5cac7b3a1eb7dcd8aae823",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
