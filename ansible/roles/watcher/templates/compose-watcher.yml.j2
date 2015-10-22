@@ -1,0 +1,106 @@
+# Copyright (c) 2015 b<>com
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Running the console is mandatory because it will create at startup
+# the watcher user and watcher service in keystone db
+console:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Console"
+  environment:
+    SERVICE_IGNORE: fake
+    OS_AUTH_URL: {{ keystone_api_url }}
+    WATCHER_API_URL: {{ watcher_api_url }}
+    EXIT_AFTER_INIT: {{ exit_config_console_after_init }}
+    OS_PROJECT_DOMAIN_ID: {{ os_project_domain_id }}
+    OS_USER_DOMAIN_ID: {{ os_user_domain_id }}
+    OS_USERNAME: {{ os_username }}
+    OS_PASSWORD: {{ os_password }}
+  image: {{ watcher_console_image }}
+  hostname: console
+  ports:
+    - "{{ watcher_console_ssh_port }}:22"
+
+api:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher API service"
+  environment:
+    SERVICE_9322_NAME: watcher
+    KEYSTONE_NODE: {{ keystone_node }}
+    KEYSTONE_SERVICE_TENANT_NAME: {{ keystone_service_tenant_name }}
+    MARIADB_NODE: {{ mysql_node }}
+    WATCHER_MESSAGING_USER: {{ messaging_user }}
+    WATCHER_MESSAGING_PASSWORD: {{ messaging_password }}
+    WATCHER_MESSAGING_HOST: {{ messaging_host }}
+    WATCHER_MESSAGING_PORT: {{ messaging_port }}
+    DEBUG_MODE: {{ debug_mode }}
+    VERBOSE_MODE: {{ verbose_mode }}
+  image: {{ watcher_api_image }}
+  hostname: watcher_api
+  ports:
+    - "{{ watcher_api_port }}:9322/tcp"
+
+decision-engine:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Decision Engine service"
+  environment:
+    SERVICE_IGNORE: fake
+    KEYSTONE_NODE: {{ keystone_node }}
+    KEYSTONE_SERVICE_TENANT_NAME: {{ keystone_service_tenant_name }}
+    MARIADB_NODE: {{ mysql_node }}
+    WATCHER_MESSAGING_USER: {{ messaging_user }}
+    WATCHER_MESSAGING_PASSWORD: {{ messaging_password }}
+    WATCHER_MESSAGING_HOST: {{ messaging_host }}
+    WATCHER_MESSAGING_PORT: {{ messaging_port }}
+    INFLUXDB_HOST: influxdb.{{ watcher_services_dns }}
+    INFLUXDB_PORT: {{ influxdb_port }}
+    INFLUXDB_DB: {{ influxdb_dbname }}  
+    INFLUXDB_USERNAME: {{ influxdb_username }}
+    INFLUXDB_PASSWORD: {{ influxdb_password }} 
+    DEBUG_MODE: {{ debug_mode }}
+    VERBOSE_MODE: {{ verbose_mode }}
+  image: watcher/decision-engine:latest
+  hostname: watcher_de
+
+applier:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Applier Service"
+  environment:
+    SERVICE_IGNORE: fake
+    KEYSTONE_NODE: {{ keystone_node }}
+    KEYSTONE_SERVICE_TENANT_NAME: {{ keystone_service_tenant_name }}
+    MARIADB_NODE: {{ mysql_node }}
+    WATCHER_MESSAGING_USER: {{ messaging_user }}
+    WATCHER_MESSAGING_PASSWORD: {{ messaging_password }}
+    WATCHER_MESSAGING_HOST: {{ messaging_host }}
+    WATCHER_MESSAGING_PORT: {{ messaging_port }}
+    DEBUG_MODE: {{ debug_mode }}
+    VERBOSE_MODE: {{ verbose_mode }}
+  image: {{ watcher_applier_image }}
+  hostname: watcher_applier
+
+horizon:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Horizon OpenStack Dashboard with Watcher plugin"
+  environment:
+    KEYSTONE_NODE: {{ keystone_node }}
+  image: {{ watcher_ui_image }}
+  hostname: horizon
+  ports:
+    - "{{ watcher_horizon_port }}:8000"

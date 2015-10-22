@@ -1,0 +1,22 @@
+
+watcher-metering-publisher:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Watcher Metering Publisher"
+  hostname: watcher-metering-publisher
+  image: {{ watcher_metering_publisher_image }}
+  environment:
+    SERVICE_12345_NAME: watcher-metering-publisher
+    METRICS_DATACENTER: watcher-ti-metering
+    # USE_NANOCONFIG_SERVICE: true
+    # NANOCONFIG_PUBLISHER_PROFILE: nanoconfig://watcher-metering-publisher
+    NANOCONFIG_SERVICE_ENDPOINT: tcp://nanoconfig.{{ watcher_services_dns }}:{{ nanoconfig_server_reply_port }}
+    NANOCONFIG_UPDATE_ENDPOINT: tcp://nanoconfig.{{ watcher_services_dns }}:{{ nanoconfig_server_update_port }}
+    RIEMANN_STORE_ENDPOINT: tcp://riemann.{{ watcher_services_dns }}:{{ riemann_port }}
+  dns:
+    - {{ docker0_address }}
+  dns_search:
+    - {{ watcher_services_dns }}
+  # static port mapping : only one publisher per docker deamon !
+  ports:
+    - {{ publisher_port }}:12345

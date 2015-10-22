@@ -1,0 +1,72 @@
+---
+
+# Copyright (c) 2015 b<>com
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Check if resolvconf service is present and running
+- name: Check if resolvconf service is present and running
+  shell: service resolvconf status | grep running
+  register: resolvconf_state
+  failed_when: resolvconf_state.rc > 1
+
+# If grep returned 0, this means that running was found in result
+- set_fact: 
+    resolvconf_service_running: "{{ resolvconf_state.rc == 0 }}"
+
+# resolv.conf : first case, if no service resolvconf is running, 
+# update the /etc/resolv.conf directly
+- name: Update resolv.conf file for search line (no resolvconf service running)
+  lineinfile: >
+    dest=/etc/resolv.conf
+    line="search service.watcher.b-com.com"
+  when: not resolvconf_service_running
+
+- name: Update resolv.conf, set consul DNS at first position (no resolvconf service running)
+  lineinfile: >
+    dest=/etc/resolv.conf
+    insertbefore="BOF"
+    line="nameserver {{ groups['service-discovery'][0] }}"
+  when: not resolvconf_service_running
+
+# resolv.conf : second case, if the resolvconf service is running, 
+# add information in dedicated files and trigger the resolvconf service to update config
+- name: Check for 'dns-nameservers' command in /etc/network/interfaces (will fail if not found)
+  shell: grep dns-nameservers /etc/network/interfaces
+  register: dns_nameservers_check
+  ignore_errors: yes
+
+- name: Display error message if 'dns-nameservers' not found
+  fail: msg="The line 'dns-nameservers' should be added to the interface {{ ansible_default_ipv4.interface }} in /etc/network/interfaces file. Add it and restart playbook."
+  when: dns_nameservers_check.rc != 0
+
+- name: Update /etc/network/interfaces to add DNS servers
+  lineinfile: >
+    dest=/etc/network/interfaces
+    backrefs=yes
+    regexp="(\s*)dns-nameservers.*$"
+    line="\1dns-nameservers {{ groups['service-discovery'] | join(' ') }} {{ recursor_dns_addresses | join(' ') }}"
+  when: resolvconf_service_running
+
+- name: Add search line in in /etc/resolvconf/resolv.conf.d/tail (resolvconf service running)
+  lineinfile: >
+    dest=/etc/resolvconf/resolv.conf.d/tail
+    create=yes
+    line="search service.watcher.b-com.com"
+  when: resolvconf_service_running
+
+# Restart network interface to update resolv.conf (done by resolvconf service)
+- name: Restart network interface
+  shell: ifdown {{ ansible_default_ipv4.interface }} && ifup {{ ansible_default_ipv4.interface }}
+  when: resolvconf_service_running

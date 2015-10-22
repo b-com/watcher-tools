@@ -1,4 +1,4 @@
 [gerrit]
 host=review.gerrithub.io
-port=29418
+port=443
 project=b-com/watcher-tools

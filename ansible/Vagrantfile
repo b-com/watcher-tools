@@ -1,0 +1,55 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  CACHE_SCOPE = ENV['CACHE_SCOPE'] || :machine
+
+  config.ssh.insert_key=true
+  config.ssh.username="vagrant"
+  config.ssh.password="vagrant"
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.ssh.forward_agent=true
+  id_rsa_ssh_key = File.read(File.join(Dir.home, ".ssh", "id_rsa"))
+  id_rsa_ssh_key_pub = File.read(File.join(Dir.home, ".ssh", "id_rsa.pub"))
+  config.vm.provision :shell, :inline => "echo 'Copying id_rsa SSH Key to VM auth_keys for auth purposes (login into VM included)...' && echo '#{id_rsa_ssh_key_pub}' >> /home/#{config.ssh.username}/.ssh/authorized_keys && chmod 600 /home/#{config.ssh.username}/.ssh/authorized_keys"
+
+  config.vm.define "consul" do |consul|
+    consul.vm.box = "ubuntu/trusty64"
+    consul.vm.hostname = "consul"
+    consul.vm.network "public_network", type: "dhcp"
+    consul.vm.network "private_network", ip: "192.168.10.10", netmask: "255.255.255.0"
+  end
+
+  config.vm.define "publisher" do |publisher|
+    publisher.vm.box = "ubuntu/trusty64"
+    publisher.vm.hostname = "publisher"
+    publisher.vm.network "public_network", type: "dhcp"
+    publisher.vm.network "private_network", ip: "192.168.10.11", netmask: "255.255.255.0"
+  end
+
+  config.vm.define "agent" do |agent|
+    agent.vm.box = "ubuntu/trusty64"
+    agent.vm.hostname = "agent"
+    agent.vm.network "public_network", type: "dhcp"
+    agent.vm.network "private_network", ip: "192.168.10.12", netmask: "255.255.255.0"
+  end
+
+  config.vm.define "watcher" do |watcher|
+    watcher.vm.box = "ubuntu/trusty64"
+    watcher.vm.hostname = "watcher"
+    watcher.vm.network "public_network", type: "dhcp"
+    watcher.vm.network "private_network", ip: "192.168.10.13", netmask: "255.255.255.0"
+  end
+
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+    v.memory = 512
+    v.cpus = 1
+  end
+
+end
+
+

@@ -1,0 +1,65 @@
+riemann:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Riemann CEP Service"
+  hostname: riemann
+  image: {{ watcher_riemann_image }}
+  environment:
+    SERVICE_NAME: riemann
+    INFLUXDB_HOST: influxdb.{{ watcher_services_dns }}
+    INFLUXDB_PORT: {{ influxdb_port }}
+    INFLUXDB_DB: {{ influxdb_dbname }}  
+    INFLUXDB_USERNAME: {{ influxdb_username }}
+    INFLUXDB_PASSWORD: {{ influxdb_password }}
+  dns:
+    - {{ docker0_address }}
+  dns_search:
+    - {{ watcher_services_dns }}
+  ports:
+    - "{{ riemann_port }}:5555"
+
+influxdb:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "InfluxDB Time Serie Database"
+  hostname: influxdb
+  image: {{ watcher_influxdb_image }}
+  environment:
+    SERVICE_NAME: influxdb
+    # INFLUXDB_VERSION: 0.9.2
+    # INFLUXDB_CONFDIR: /etc/opt/influxdb
+    INFLUXDB_PORT: {{ influxdb_port }}
+    PRE_CREATE_DB: {{ influxdb_dbname }}
+    INFLUXDB_PASSWORD: {{ influxdb_username }}
+    INFLUXDB_USERNAME: {{ influxdb_password }}
+    # PURGE_DATADIR: 1
+    # REPLICATION_FACTOR: 1
+  volumes:
+    - {{ influxdb_hostdatadir }}:/opt/datanode
+  ports:
+    - "{{ influxdb_ui_port }}:8083"
+    - "{{ influxdb_port }}:8086"
+  dns:
+    - {{ docker0_address }}
+  dns_search:
+    - {{ watcher_services_dns }}
+
+grafana:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Grafana Metrics Dashboard"
+  hostname: grafana
+  image: {{ watcher_grafana_image }}
+  environment:
+    SERVICE_NAME: grafana
+    INFLUXDB_HOST: influxdb.{{ watcher_services_dns }}
+    INFLUXDB_PORT: {{ influxdb_port }}
+    INFLUXDB_DB: {{ influxdb_dbname }}  
+    INFLUXDB_USERNAME: {{ influxdb_username }}
+    INFLUXDB_PASSWORD: {{ influxdb_password }}
+  ports:
+    - "{{ watcher_metering_grafana_ui }}:3000"
+  dns:
+    - {{ docker0_address }}
+  dns_search:
+    - {{ watcher_services_dns }}
