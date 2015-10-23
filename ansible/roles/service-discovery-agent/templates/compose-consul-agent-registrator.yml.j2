@@ -1,0 +1,39 @@
+consul:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Bootstrapped Consul server for Service Discovery"
+  hostname: consul
+  image: "{{ consul_image }}"
+  environment:
+    SERVICE_NAME: consul
+  command: -server -node {{ servreg_node }} -dc {{ watcher_dc }} -domain {{ watcher_domain }} -join {{ service_discovery_addresses }} -advertise {{ inventory_hostname }}
+  volumes_from: 
+    - consuldata
+  # The ports 8302, 8400 and 8500 are not binded externally
+  ports:
+    - {{ inventory_hostname }}:8300:8300
+    - {{ inventory_hostname }}:8301:8301
+    - {{ inventory_hostname }}:8301:8301/udp
+    - {{ docker0_address }}:53:53/udp
+
+consuldata:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Service Discovery Data"
+  image: progrium/busybox
+  hostname: consuldata
+  command: /bin/sh -c 'rm -rf /data/*'
+  volumes: 
+    - /data
+
+registrator:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Local service Registrator"
+  image: "{{ registrator_image }}"
+  hostname: registrator
+  command: -ip {{ inventory_hostname }} consul://consul:8500  
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  links:
+    - consul:consul

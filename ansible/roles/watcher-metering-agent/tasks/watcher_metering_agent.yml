@@ -1,0 +1,63 @@
+---
+
+# Copyright (c) 2015 b<>com
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+# ==== Install Watcher Metering Agent
+- name: Install Watcher Metering Agent in a virtualenv
+  pip: name=python-watcher_metering virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  when: use_python_virtualenv
+
+- name: Install Watcher Metering Agent without a virtualenv
+  pip: name=python-watcher_metering virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  when: not use_python_virtualenv
+# ==== End
+
+# ==== Install Watcher Metering Drivers
+- name: Copy docker-compose certificate for internal registry access
+  copy: >
+    src="../files/drivers-requirements.txt"
+    dest="{{ watcher_metering_agent_virtualenv }}/bin/drivers-requirements.txt"
+  when: use_python_virtualenv
+
+- name: Install Watcher Metering requirements in a virtualenv
+  pip: >
+    requirements="{{ watcher_metering_agent_virtualenv }}/bin/drivers-requirements.txt"
+    virtualenv={{ watcher_metering_agent_virtualenv }}
+  when: use_python_virtualenv
+
+- name: Install Watcher Metering Drivers in a virtualenv
+  pip: name=python-watcher_metering_drivers version={{ watcher_metering_drivers_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present 
+  when: use_python_virtualenv
+
+# To force a non-stable version, add >> version="0.19.2.0b0" << to the pip command.
+- name: Install Watcher Metering Drivers without a virtualenv
+  pip: name=python-watcher_metering_drivers version={{ watcher_metering_drivers_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  when: not use_python_virtualenv
+# ==== End
+
+- name: Create the Watcher Metering configuration folder
+  file: path={{ watcher_metering_config_dir }} state=directory mode=0755
+
+- name: Configure the Watcher Metering Drivers
+  template: >
+    src=drivers.conf.j2
+    dest={{ watcher_metering_drivers_config_file }}
+
+- name: Configure the Watcher Metering Agent
+  template: >
+    src=agent.conf.j2
+    dest={{ watcher_metering_agent_config_file }}

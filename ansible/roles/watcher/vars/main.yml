@@ -1,0 +1,4 @@
+# file: roles/watcher-controller/vars/main.yml
+---
+#
+# foo: bar

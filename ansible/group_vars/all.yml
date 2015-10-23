@@ -1,0 +1,184 @@
+---
+
+######################################################
+# Docker install
+######################################################
+docker_upgrade: false
+docker_compose_version: 1.4.0
+# To force a docker-compose "pull" before "up" : the pull command ensures that the latest
+# container version will be loaded, but it will slow-down the playbook execution
+docker_force_pulling: true
+# On each host docker-compose is intalled, the yaml files will be copied here:
+docker_compose_file_dir: /root/watcher-docker
+
+######################################################
+# Docker images
+######################################################
+
+# watcher docker repository:
+#   - set host:port/ to target a private registry
+#   - <empty> to target public registry
+watcher_repository:
+
+# watcher controler
+watcher_console_image: "{{ watcher_repository }}watcher/console:latest"
+watcher_api_image: "{{ watcher_repository }}watcher/api:latest"
+watcher_applier_image: "{{ watcher_repository }}watcher/applier:latest"
+watcher_ui_image: "{{ watcher_repository }}watcher/ui"
+
+# Metering chain
+nanoconfig_server_image: "{{ watcher_repository }}watcher/nanoconfig-server:latest"
+watcher_metering_publisher_image: "{{ watcher_repository }}watcher/metering-publisher:latest"
+watcher_riemann_image: "{{ watcher_repository }}watcher/riemann:latest"
+watcher_influxdb_image: "{{ watcher_repository }}watcher/influxdb:latest"
+watcher_grafana_image: "{{ watcher_repository }}watcher/grafana:latest"
+
+# Unmodified docker-hub images
+consul_image: progrium/consul:latest
+registrator_image: gliderlabs/registrator:v6
+
+######################################################
+# Service discovery
+######################################################
+
+ # The DNS server to call if the FQDN address is not resolved by Consul
+recursor_dns_addresses:
+   - 8.8.8.8
+
+# Addresses list of the consul cluster (set 1 to any addresses). Only
+# needed to join the cluster, so the specified consul server(s) can
+# fail without damage after joining if the consul cluster is still alive.
+service_discovery_addresses: "{{ groups['service-discovery'] | join(' -join ') }}"
+
+# Service discovery settings
+watcher_dc: watcher
+watcher_domain: b-com.com
+watcher_dc_domain: "{{ watcher_dc }}.{{ watcher_domain }}"
+watcher_services_dns: "service.{{ watcher_dc_domain }}"
+
+######################################################
+# Static port mappings
+# Change these ports if reserved on your target host
+######################################################
+
+watcher_api_port: 9322
+
+# nanoconfig host-mapped server ports (internally 10800 and 10900)
+use_nanoconfig_service: true
+nanoconfig_server_reply_port: 10800
+nanoconfig_server_update_port: 10900
+
+# Uncomment below to force nanoconfig endpoints
+# nanoconfig_service_endpoint: tcp://10.50.0.107:10800
+# nanoconfig_update_endpoint: tcp://10.50.0.107:10900
+
+# watcher metering publisher host-mapped port (internally 12345)
+publisher_port: 12345
+
+# watcher metering riemann host-mapped port (internally 5555)
+riemann_port: 5555
+
+# influxdb host-mapped port (use this port to request influxdb from host)
+influxdb_ui_port: 8083
+
+# grafana UI port (internally 3000)
+watcher_metering_grafana_ui: 3000
+
+# Horizon with watcher panel 
+watcher_horizon_port: 8000
+
+
+# influxdb settings
+influxdb_port: 8086
+influxdb_dbname: watcher_metrics
+influxdb_username: root
+influxdb_password: root
+
+# Host data directory
+influxdb_hostdatadir: /opt/watcher-metering-data
+
+
+######################################################
+# Watcher console on watcher-controller
+######################################################
+# Keep watcher console container alive
+# If a value assigned, the container will stop after configuration.
+# Otherwise, you'll be able to connect using ssh (following 
+# port, root/root)
+exit_config_console_after_init: ""
+# Watcher console ssh port
+watcher_console_ssh_port: 12322
+
+
+######################################################
+# Metering agent configuration
+######################################################
+
+# If you set these parameters, it will skip the update of resolv.conf 
+# This step is required if you want dns resolution with the consul
+# cluster. Otherwise (set to false), you must overwrite nanoconfig_service_endpoint
+# and nanoconfig_update_endpoint with IP addresses.
+update_resolvconf: true
+
+# Virtual env settings for pip-install of watcher agents
+use_python_virtualenv: true
+watcher_metering_agent_virtualenv: /opt/watcher-metering-agent/venv
+
+driver_names:
+  - cpu_count
+  - cpu_user
+  - cpu_idle
+  - disk_used
+  - memory_used
+  - instance_cpu_used
+  # - disk_total
+  # - disk_free
+  # - memory_total
+  # - memory_free
+  # - swap_total
+  # - swap_used
+  # - swap_free
+  # - energy_active_energy
+  # - energy_active_power
+  # - energy_rms_current
+  # - energy_rms_voltage
+  # - energy_apparent_power
+  # - energy_power_factor
+  # - energy_on_off
+  # - energy_frequency_puller
+
+######################################################
+# OpenStack configuration
+######################################################
+
+# Set here the OpenStack ccontroler host (may be the same as watcher controler)
+openstack_ctrl_host: "{{ groups['watcher-controller'][0] }}"
+
+debug_mode: false
+verbose_mode: false
+
+keystone_node: "{{ openstack_ctrl_host }}"
+keystone_service_tenant_name: service
+keystone_api_url: http://{{ keystone_node }}:5000/v3
+
+os_project_domain_id: default
+os_user_domain_id: default
+os_username: admin
+os_password: openstacktest
+
+# Database
+# For devstack: root / stackdb
+mysql_node: "{{ openstack_ctrl_host }}"
+mysql_user: root
+mysql_password: openstacktest
+
+# Watcher messaging (OS rabbitMQ)
+# For devstack: stackrabbit / stackqueue
+messaging_user: openstack
+messaging_password: openstacktest
+messaging_host: "{{ openstack_ctrl_host }}"
+messaging_port: 5672
+
+# watcher host
+watcher_api_url: http://{{ openstack_ctrl_host }}:{{ watcher_api_port }}
+

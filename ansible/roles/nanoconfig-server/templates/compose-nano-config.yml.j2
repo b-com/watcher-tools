@@ -1,0 +1,19 @@
+nanoconfig-server:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Nanoconfig Server"
+  hostname: nanoconfig-server
+  image: {{ nanoconfig_server_image }}
+  environment:
+    WATCHER_METERING_PUBLISHER_ENDPOINT: tcp://watcher-metering-publisher.{{ watcher_services_dns }}:{{ publisher_port }}
+    # NANOCONFIG_AGENT_PROFILE: nanoconfig://watcher-metering-agent
+    # NANOCONFIG_PUBLISHER_PROFILE: nanoconfig://watcher-metering-publisher
+    SERVICE_10800_NAME: nanoconfig
+    SERVICE_10900_NAME: nanoconfig
+  ports:
+    - {{ nanoconfig_server_reply_port }}:10800
+    - {{ nanoconfig_server_update_port }}:10900
+  dns:
+    - {{ inventory_hostname }}
+  dns_search:
+    - {{ watcher_services_dns }}
