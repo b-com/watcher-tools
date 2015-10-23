@@ -26,13 +26,13 @@ For each of these Openstack components you have two possible options:
 Install docker and docker compose
 ---------------------------------
 
-We suppose you have already installed docker and docker-compose tools. If not, please read this [README] part.
+We suppose you have already installed docker and docker-compose tools. If not, please read this [README part].
 
- [README]: https://github.com/b-com/watcher-tools/tree/master/docker#install-docker-and-docker-compose 
+ [README part]: https://github.com/b-com/watcher-tools/tree/master/docker#install-docker-and-docker-compose 
 
-We also suppose service discovery containers have been already deployed. If not, please read this [README] part.
+We also suppose service discovery containers have been already deployed. If not, please read this [other README part].
 
- [README]: https://github.com/b-com/watcher-tools/tree/master/docker#run-the-service-discovery-tools 
+ [other README part]: https://github.com/b-com/watcher-tools/tree/master/docker#run-the-service-discovery-tools 
 
 If you want to connect to an existing OpenStack Identity Service Keystone
 -------------------------------------------------------------------------

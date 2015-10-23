@@ -14,7 +14,7 @@ Note: this following procedure has been validated on Ubuntu 14.04.LTS OS, with d
 Install devstack
 ----------------
 
-If you need to install DevStack, you can refer to this page : [DevStack - an OpenStack Community Production] (We recommend using a minimal install of Ubuntu or Fedora server in a new VM)
+If you need to install DevStack, you can refer to this page : [DevStack - an OpenStack Community Production]. We recommend using a minimal install of Ubuntu or Fedora server in a new VM.
 
     $ git clone https://git.openstack.org/openstack-dev/devstack
 
