@@ -1,0 +1,136 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          watcher-metering-agent
+# Required-Start:    $network $local_fs $remote_fs $syslog
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Compute agent for watcher metrics
+# Description:       Watcher Metering collects system metrics and publishes them to a store
+#                    This project is part of the Watcher solution.
+### END INIT INFO
+
+{% if use_python_virtualenv %}
+DAEMON="{{ watcher_metering_agent_virtualenv }}/bin/watcher-metering-agent"
+{% else %}
+DAEMON="/bin/watcher-metering-agent"
+{% endif %}
+
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="Watcher metering agent"
+PROJECT_NAME=watcher
+NAME=${PROJECT_NAME}-metering-agent
+SYSTEM_USER=root
+DAEMON_ARGS="--config-file={{ watcher_metering_agent_config_file }} --config-file={{ watcher_metering_drivers_config_file }}"
+
+#!/bin/sh
+# The content after this line comes from openstack-pkg-tools
+# and has been automatically added to a .init.in script, which
+# contains only the descriptive part for the daemon. Everything
+# else is standardized as a single unique script.
+
+# Author: Thomas Goirand <zigo@debian.org>
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+if [ -z "${DAEMON}" ] ; then
+    DAEMON=/usr/bin/${NAME}
+fi
+PIDFILE=/var/run/${PROJECT_NAME}/${NAME}.pid
+if [ -z "${SCRIPTNAME}" ] ; then
+    SCRIPTNAME=/etc/init.d/${NAME}
+fi
+if [ -z "${SYSTEM_USER}" ] ; then
+    SYSTEM_USER=${PROJECT_NAME}
+fi
+if [ -z "${SYSTEM_USER}" ] ; then
+    SYSTEM_GROUP=${PROJECT_NAME}
+fi
+if [ "${SYSTEM_USER}" != "root" ] ; then
+    STARTDAEMON_CHUID="--chuid ${SYSTEM_USER}:${SYSTEM_GROUP}"
+fi
+LOGFILE=/var/log/${PROJECT_NAME}/${NAME}.log
+
+# Exit if the package is not installed
+[ -x $DAEMON ] || exit 0
+
+# If ran as root, create /var/lock/X, /var/run/X, /var/lib/X and /var/log/X as needed
+if [ `whoami` = "root" ] ; then
+    for i in lock run log lib ; do
+        mkdir -p /var/$i/${PROJECT_NAME}
+        chown ${SYSTEM_USER} /var/$i/${PROJECT_NAME}
+    done
+fi
+
+# This defines init_is_upstart which we use later on (+ more...)
+. /lib/lsb/init-functions
+
+# Manage log options: logfile and/or syslog, depending on user's choosing
+[ -r /etc/default/openstack ] && . /etc/default/openstack
+[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+[ "x$USE_SYSLOG" = "xyes" ] && DAEMON_ARGS="$DAEMON_ARGS --use-syslog"
+[ "x$USE_LOGFILE" != "xno" ] && DAEMON_ARGS="$DAEMON_ARGS --log-file=$LOGFILE"
+
+do_start() {
+    start-stop-daemon --start --quiet --background ${STARTDAEMON_CHUID} --make-pidfile --pidfile ${PIDFILE} --chdir /var/lib/${PROJECT_NAME} --startas $DAEMON -- $DAEMON_ARGS
+}
+
+do_stop() {
+    start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE
+    RETVAL=$?
+    rm -f $PIDFILE
+    return "$RETVAL"
+}
+
+do_systemd_start() {
+    exec $DAEMON $DAEMON_ARGS
+}
+
+case "$1" in
+start)
+    log_daemon_msg "Starting $DESC" "$NAME"
+    do_start
+    case $? in
+        0|1) log_end_msg 0 ;;
+        2) log_end_msg 1 ;;
+    esac
+;;
+stop)
+    log_daemon_msg "Stopping $DESC" "$NAME"
+    do_stop
+    case $? in
+        0|1) log_end_msg 0 ;;
+        2) log_end_msg 1 ;;
+    esac
+;;
+status)
+    status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
+;;
+systemd-start)
+    do_systemd_start
+;;  
+restart|force-reload)
+    log_daemon_msg "Restarting $DESC" "$NAME"
+    do_stop
+    case $? in
+    0|1)
+        do_start
+        case $? in
+            0) log_end_msg 0 ;;
+            1) log_end_msg 1 ;; # Old process is still running
+            *) log_end_msg 1 ;; # Failed to start
+        esac
+    ;;
+    *) log_end_msg 1 ;; # Failed to stop
+    esac
+;;
+*)
+    echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload|systemd-start}" >&2
+    exit 3
+;;
+esac
+
+exit 0

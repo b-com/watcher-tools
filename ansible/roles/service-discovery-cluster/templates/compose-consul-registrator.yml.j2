@@ -1,0 +1,43 @@
+consul:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Bootstrapped Consul server for Service Discovery"
+  hostname: consul
+  image: "{{ consul_image }}"
+  environment:
+    SERVICE_NAME: consul
+  command: -server -node {{ servreg_node }} -dc {{ watcher_dc }} -domain {{ watcher_domain }} -recursor {{ recursor_dns_addresses | join(' -recursor ') }} -advertise {{ inventory_hostname }} -bootstrap -ui-dir /ui
+  volumes_from: 
+    - consuldata
+  ports:
+    - {{ inventory_hostname }}:8300:8300
+    - {{ inventory_hostname }}:8301:8301
+    - {{ inventory_hostname }}:8301:8301/udp
+    - {{ inventory_hostname }}:8302:8302
+    - {{ inventory_hostname }}:8302:8302/udp
+    - {{ inventory_hostname }}:8400:8400
+    - {{ inventory_hostname }}:8500:8500
+    - {{ inventory_hostname }}:53:53/udp
+
+consuldata:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Service Discovery Data"
+  image: progrium/busybox
+  hostname: consuldata
+  command: /bin/sh -c 'rm -rf /data/*'
+  volumes: 
+    - /data
+
+registrator:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Local service Registrator"
+  image: "{{ registrator_image }}"
+
+  hostname: registrator
+  command: -ip {{ inventory_hostname }} consul://consul:8500  
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  links:
+   - consul:consul

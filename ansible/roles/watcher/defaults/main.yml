@@ -1,0 +1,4 @@
+# file: roles/watcher/defaults/main.yml
+---
+keystone_api_retries: 3
+keystone_api_retries_delay: 5
