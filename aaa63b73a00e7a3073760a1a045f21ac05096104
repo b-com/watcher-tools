@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab29df4_68b54a30",
+        "filename": "ansible/playbook.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1006574
+      },
+      "writtenOn": "2015-11-05T10:46:33Z",
+      "side": 1,
+      "message": "with an \u0027s\u0027 here",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 29
+      },
+      "revId": "aaa63b73a00e7a3073760a1a045f21ac05096104",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_88837e55",
+        "filename": "ansible/roles/watcher-metering-agent/files/drivers-requirements.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006574
+      },
+      "writtenOn": "2015-11-05T10:46:33Z",
+      "side": 1,
+      "message": "remove this one",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 6
+      },
+      "revId": "aaa63b73a00e7a3073760a1a045f21ac05096104",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_08de8e6d",
+        "filename": "ansible/roles/watcher-metering-agent/tasks/packages_debian.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1006574
+      },
+      "writtenOn": "2015-11-05T10:46:33Z",
+      "side": 1,
+      "message": "typo here: missing the \u0027t\u0027",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "aaa63b73a00e7a3073760a1a045f21ac05096104",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab29df4_68e38a33",
+        "filename": "ansible/roles/watcher-metering-driver/defaults/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1006574
+      },
+      "writtenOn": "2015-11-05T10:46:33Z",
+      "side": 1,
+      "message": "We should remove all b-com specific config here.\n\nSo leave blank the pdu configuration for now and deactivate it by default.",
+      "range": {
+        "startLine": 34,
+        "startChar": 28,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "aaa63b73a00e7a3073760a1a045f21ac05096104",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
