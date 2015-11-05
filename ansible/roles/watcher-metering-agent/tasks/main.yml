@@ -27,3 +27,4 @@
 
 # Install the Watcher Metering Agent service
 - include: install_agent_service.yml
+

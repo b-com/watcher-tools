@@ -1,0 +1,4 @@
+# file: roles/compute-node/vars/main.yml
+---
+#
+# foo: bar
