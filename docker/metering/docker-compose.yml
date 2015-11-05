@@ -17,11 +17,12 @@ watcher-metering-publisher:
   environment:
     SERVICE_12345_NAME: watcher-metering-publisher
     # METRICS_DATACENTER: watcher-ti-metering
-    # USE_NANOCONFIG_SERVICE: true
+    USE_NANOCONFIG_SERVICE: {{ use_nanoconfig_service }}
     # NANOCONFIG_PUBLISHER_PROFILE: nanoconfig://watcher-metering-publisher
     # NANOCONFIG_SERVICE_ENDPOINT: tcp://nanoconfig.service.watcher.b-com.com:10800
     # NANOCONFIG_UPDATE_ENDPOINT: tcp://nanoconfig.service.watcher.b-com.com:10900
     # RIEMANN_STORE_ENDPOINT: tcp://riemann.service.watcher.b-com.com:5555
+    PUBLISHER_ENDPOINT: {{ publisher_listening_endpoint }}
   extends:
     file: ../service_discovery/settings.yml
     service: registry-node
@@ -59,7 +60,7 @@ riemann:
     # INFLUXDB_PORT: 8086
     # INFLUXDB_USERNAME: root
     # INFLUXDB_PASSWORD: root
-    # INFLUXDB_DB: watcher_metrics  
+    # INFLUXDB_DB: watcher_metrics
   extends:
     file: ../service_discovery/settings.yml
     service: registry-node
@@ -101,7 +102,7 @@ grafana:
     # INFLUXDB_PORT: 8086
     # INFLUXDB_USERNAME: root
     # INFLUXDB_PASSWORD: root
-    # INFLUXDB_DB: watcher_metrics  
+    # INFLUXDB_DB: watcher_metrics
   ports:
     - 3000:3000
   extends:
