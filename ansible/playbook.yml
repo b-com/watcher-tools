@@ -86,11 +86,9 @@
     - docker-compose
     - watcher
 
-- hosts: allinone
+- hosts: all-in-one
   become: yes
   become_user: root
-  tags:
-    - watcher-controller
   roles:
     - docker
     - docker-compose
