@@ -85,3 +85,12 @@
     - docker
     - docker-compose
     - watcher
+
+- hosts: all-in-one
+  become: yes
+  become_user: root
+  roles:
+    - docker
+    - docker-compose
+    - watcher-metering-engine
+    - watcher-metering-publisher

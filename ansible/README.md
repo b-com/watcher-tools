@@ -126,3 +126,56 @@ machines referenced in the hosts group named `compute-node` (defined in the file
     - ansible-pip
     - watcher-metering-agent
 ```
+
+
+Deploy Watcher Metering Chain for development
+=============================================
+
+For development, you can bypass the service discovery facilities. But you will have to manually set networking parameters. 
+
+You can manually install [watcher](https://factory.b-com.com/www/watcher/doc/watcher/deploy/installation.html) and a [watcher metering agent](https://factory.b-com.com/www/watcher/doc/watcher-metering/deploy/installation.html) into DevStack and deploy, with Ansible, the watcher Metering chain into another machine.
+
+Declare in the file `production` inventory file, group name `all-in-one`, your target machine (ex: 192.168.174.183) on which you want deploy Watcher Metering components:
+
+ ``` shell
+[all-in-one]
+my_machine ansible_ssh_host=192.168.174.183 ansible_ssh_user=<username> ansible_ssh_private_key_file=~/.ssh/id_rsa_ansible
+```
+
+Edit the `./group_vars/all.yml` file and update the `target_allinone_host` key with your machine IP address:
+``` shell
+target_allinone_host: "192.168.174.183"
+```
+
+And run ansible:
+``` shell
+$ ansible-playbook -s playbook.yml -i production --ask-sudo-pass --limit=all-in-one
+```
+
+This command will run this part of playbook:
+``` shell
+- hosts: all-in-one
+  become: yes
+  become_user: root
+  roles:
+    - docker
+    - docker-compose
+    - watcher-metering-engine
+    - watcher-metering-publisher
+``` 
+
+Finally, you have to configure the Watcher Metering Agent, deployed into DevStack, by setting its Publisher endpoint URL:
+``` shell
+# Complete Publisher API endpoint URI, e.g. tcp://localhost:12345.
+# Used if the `use_nanoconfig_service` option is not activated.
+# (string value)
+publisher_endpoint = 192.168.174.183:12345
+```
+
+and restart the agent.
+
+
+If your installation is successful, you will have access to :
+* InfluxDB Web Interface : http://192.168.174.183:8083
+* Grafana Web Interface: http://192.168.174.183:3000 (you should see metering data into `Watcher metering I&T` dashboard)
+ 
