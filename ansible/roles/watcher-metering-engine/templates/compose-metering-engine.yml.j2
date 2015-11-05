@@ -8,7 +8,7 @@ riemann:
     SERVICE_NAME: riemann
     INFLUXDB_HOST: influxdb.{{ watcher_services_dns }}
     INFLUXDB_PORT: {{ influxdb_port }}
-    INFLUXDB_DB: {{ influxdb_dbname }}  
+    INFLUXDB_DB: {{ influxdb_dbname }}
     INFLUXDB_USERNAME: {{ influxdb_username }}
     INFLUXDB_PASSWORD: {{ influxdb_password }}
   dns:
@@ -17,6 +17,13 @@ riemann:
     - {{ watcher_services_dns }}
   ports:
     - "{{ riemann_port }}:5555"
+{% if allinone_activated %}
+  extra_hosts:
+    - "watcher-metering-publisher.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "riemann.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "influxdb.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "grafana.service.watcher.b-com.com:{{ target_allinone_host }}"
+{% endif %}
 
 influxdb:
   labels:
@@ -43,6 +50,13 @@ influxdb:
     - {{ docker0_address }}
   dns_search:
     - {{ watcher_services_dns }}
+{% if allinone_activated %}
+  extra_hosts:
+    - "watcher-metering-publisher.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "riemann.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "influxdb.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "grafana.service.watcher.b-com.com:{{ target_allinone_host }}"
+{% endif %}
 
 grafana:
   labels:
@@ -54,7 +68,7 @@ grafana:
     SERVICE_NAME: grafana
     INFLUXDB_HOST: influxdb.{{ watcher_services_dns }}
     INFLUXDB_PORT: {{ influxdb_port }}
-    INFLUXDB_DB: {{ influxdb_dbname }}  
+    INFLUXDB_DB: {{ influxdb_dbname }}
     INFLUXDB_USERNAME: {{ influxdb_username }}
     INFLUXDB_PASSWORD: {{ influxdb_password }}
   ports:
@@ -63,3 +77,10 @@ grafana:
     - {{ docker0_address }}
   dns_search:
     - {{ watcher_services_dns }}
+{% if allinone_activated %}
+  extra_hosts:
+    - "watcher-metering-publisher.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "riemann.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "influxdb.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "grafana.service.watcher.b-com.com:{{ target_allinone_host }}"
+{% endif %}

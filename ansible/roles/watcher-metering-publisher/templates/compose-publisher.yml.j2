@@ -8,11 +8,12 @@ watcher-metering-publisher:
   environment:
     SERVICE_12345_NAME: watcher-metering-publisher
     METRICS_DATACENTER: watcher-ti-metering
-    # USE_NANOCONFIG_SERVICE: true
+    USE_NANOCONFIG_SERVICE: {{ use_nanoconfig_service }}
     # NANOCONFIG_PUBLISHER_PROFILE: nanoconfig://watcher-metering-publisher
     NANOCONFIG_SERVICE_ENDPOINT: tcp://nanoconfig.{{ watcher_services_dns }}:{{ nanoconfig_server_reply_port }}
     NANOCONFIG_UPDATE_ENDPOINT: tcp://nanoconfig.{{ watcher_services_dns }}:{{ nanoconfig_server_update_port }}
     RIEMANN_STORE_ENDPOINT: tcp://riemann.{{ watcher_services_dns }}:{{ riemann_port }}
+    PUBLISHER_ENDPOINT: {{ publisher_listening_endpoint }}
   dns:
     - {{ docker0_address }}
   dns_search:
@@ -20,3 +21,10 @@ watcher-metering-publisher:
   # static port mapping : only one publisher per docker deamon !
   ports:
     - {{ publisher_port }}:12345
+{% if allinone_activated %}
+  extra_hosts:
+    - "watcher-metering-publisher.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "riemann.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "influxdb.service.watcher.b-com.com:{{ target_allinone_host }}"
+    - "grafana.service.watcher.b-com.com:{{ target_allinone_host }}"
+{% endif %}

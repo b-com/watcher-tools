@@ -64,7 +64,7 @@ watcher_services_dns: "service.{{ watcher_dc_domain }}"
 watcher_api_port: 9322
 
 # nanoconfig host-mapped server ports (internally 10800 and 10900)
-use_nanoconfig_service: true
+use_nanoconfig_service: false
 nanoconfig_server_reply_port: 10800
 nanoconfig_server_update_port: 10900
 
@@ -74,6 +74,7 @@ nanoconfig_server_update_port: 10900
 
 # watcher metering publisher host-mapped port (internally 12345)
 publisher_port: 12345
+publisher_listening_endpoint: "tcp://0.0.0.0:{{publisher_port}}"
 
 # watcher metering riemann host-mapped port (internally 5555)
 riemann_port: 5555
@@ -186,3 +187,8 @@ messaging_port: 5672
 
 # watcher host
 watcher_api_url: http://{{ openstack_ctrl_host }}:{{ watcher_api_port }}
+
+
+allinone_activated: true
+
+target_allinone_host: "192.168.10.20"

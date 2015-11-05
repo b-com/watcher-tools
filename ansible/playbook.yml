@@ -85,3 +85,14 @@
     - docker
     - docker-compose
     - watcher
+
+- hosts: allinone
+  become: yes
+  become_user: root
+  tags:
+    - watcher-controller
+  roles:
+    - docker
+    - docker-compose
+    - watcher-metering-engine
+    - watcher-metering-publisher
