@@ -74,7 +74,7 @@
     - metering-agent
   roles:
     - ansible-pip
-    - watcher-metering-agent
+    - watcher-metering-driver
 
 - hosts: watcher-controller
   become: yes

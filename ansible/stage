@@ -1,11 +1,11 @@
 
-# [service-discovery]
+[service-discovery]
 192.168.10.10 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.ssh/id_rsa
 
-# [watcher-metering-engine-publisher]
+[watcher-metering-engine-publisher]
 192.168.10.11 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.ssh/id_rsa
 
-# [compute-node]
+[compute-node]
 192.168.10.12 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.ssh/id_rsa
 
 [watcher-controller]

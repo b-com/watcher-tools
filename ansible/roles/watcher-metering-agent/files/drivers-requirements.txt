@@ -7,5 +7,6 @@ Cython
 psutil
 enum34
 pysnmp
+pyasn1
 libvirt-python
 lxml

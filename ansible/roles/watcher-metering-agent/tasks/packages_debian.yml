@@ -30,19 +30,48 @@
     - zlib1g-dev
     - qemu-kvm
 
-- debug: msg="[{{ ansible_hostname }}] Adding Indeed Debian repository"
+- name: Check if nanomsg is installed
+  command: dpkg-query -l libnanomsg
+  failed_when: nanomsg_is_install.rc > 1
+  changed_when: no
+  register: nanomsg_is_install
 
-- name: Add Indeed Debian repositories
-  apt_repository: repo='{{ item }}' state=present
-  with_items:
-    - "deb http://10.50.0.220/ stable main"
-    - "deb http://10.50.0.220/ unstable main"
+- name: Download libnanomsg
+  get_url:
+    url: http://factory.b-com.com/www/watcher/download/watcher-meteri_0.6.0_all.deb
+    dest: /tmp/libnanomsg_0.6.0_all.deb
+  when: nanomsg_is_install.rc != 0
 
-- name: Add Indeed repository key
-  apt_key: url=http://10.50.0.220/key.asc state=present
+- name: Insall nanomsg
+  apt:
+    deb: /tmp/libnanomsg_0.6.0_all.deb
+  when: nanomsg_is_install.rc != 0
 
-- name: Install Indeed system dependencies for Watcher Metering Agent
-  apt: name={{ item }} state=present update_cache=yes force=yes
-  with_items:
-    - libnanomsg
-    - libnanoconfig
+- name: Cleanup nanomsg debian package
+  file:
+    name: /tmp/libnanomsg_0.6.0_all.deb
+    state: absent
+  when: nanomsg_is_install.rc != 0
+
+- name: Check if nanoconfig  is installed
+  command: dpkg-query -l libnanoconfig
+  failed_when: nanoconfig_is_install.rc > 1
+  changed_when: no
+  register: nanoconfig_is_install
+
+- name: Download nanoconfig
+  get_url:
+    url: http://factory.b-com.com/www/watcher/download/watcher-metering/libnanoconfig_0.0.1-beta_all.deb
+    dest: /tmp/libnanoconfig_0.0.1-beta_all.deb
+  when: nanoconfig_is_install.rc != 0
+
+- name: Insall nanomsg
+  apt:
+    deb: /tmp/libnanoconfig_0.0.1-beta_all.deb
+  when: nanoconfig_is_install.rc != 0
+
+- name: Cleanup nanomsg
+  file:
+    name: /tmp/libnanoconfig_0.0.1-beta_all.deb
+    state: absent
+  when: nanoconfig_is_install.rc != 0

@@ -18,44 +18,16 @@
 
 # ==== Install Watcher Metering Agent
 - name: Install Watcher Metering Agent in a virtualenv
-  pip: name=python-watcher_metering virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  pip: name=python-watcher_metering version={{ watcher_metering_agent_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present
   when: use_python_virtualenv
 
 - name: Install Watcher Metering Agent without a virtualenv
-  pip: name=python-watcher_metering virtualenv={{ watcher_metering_agent_virtualenv }} state=present
-  when: not use_python_virtualenv
-# ==== End
-
-# ==== Install Watcher Metering Drivers
-- name: Copy docker-compose certificate for internal registry access
-  copy: >
-    src="../files/drivers-requirements.txt"
-    dest="{{ watcher_metering_agent_virtualenv }}/bin/drivers-requirements.txt"
-  when: use_python_virtualenv
-
-- name: Install Watcher Metering requirements in a virtualenv
-  pip: >
-    requirements="{{ watcher_metering_agent_virtualenv }}/bin/drivers-requirements.txt"
-    virtualenv={{ watcher_metering_agent_virtualenv }}
-  when: use_python_virtualenv
-
-- name: Install Watcher Metering Drivers in a virtualenv
-  pip: name=python-watcher_metering_drivers version={{ watcher_metering_drivers_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present 
-  when: use_python_virtualenv
-
-# To force a non-stable version, add >> version="0.19.2.0b0" << to the pip command.
-- name: Install Watcher Metering Drivers without a virtualenv
-  pip: name=python-watcher_metering_drivers version={{ watcher_metering_drivers_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  pip: name=python-watcher_metering version={{ watcher_metering_agent_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present
   when: not use_python_virtualenv
 # ==== End
 
 - name: Create the Watcher Metering configuration folder
   file: path={{ watcher_metering_config_dir }} state=directory mode=0755
-
-- name: Configure the Watcher Metering Drivers
-  template: >
-    src=drivers.conf.j2
-    dest={{ watcher_metering_drivers_config_file }}
 
 - name: Configure the Watcher Metering Agent
   template: >
