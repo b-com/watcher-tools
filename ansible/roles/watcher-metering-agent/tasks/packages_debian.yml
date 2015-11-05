@@ -38,7 +38,7 @@
 
 - name: Download libnanomsg
   get_url:
-    url: http://factory.b-com.com/www/watcher/download/watcher-meteri_0.6.0_all.deb
+    url: http://factory.b-com.com/www/watcher/download/watcher-metering/libnanomsg_0.6.0_all.deb
     dest: /tmp/libnanomsg_0.6.0_all.deb
   when: nanomsg_is_install.rc != 0
 
