@@ -84,7 +84,7 @@ influxdb_ui_port: 8083
 # grafana UI port (internally 3000)
 watcher_metering_grafana_ui: 3000
 
-# Horizon with watcher panel 
+# Horizon with watcher panel
 watcher_horizon_port: 8000
 
 
@@ -103,7 +103,7 @@ influxdb_hostdatadir: /opt/watcher-metering-data
 ######################################################
 # Keep watcher console container alive
 # If a value assigned, the container will stop after configuration.
-# Otherwise, you'll be able to connect using ssh (following 
+# Otherwise, you'll be able to connect using ssh (following
 # port, root/root)
 exit_config_console_after_init: ""
 # Watcher console ssh port
@@ -114,7 +114,7 @@ watcher_console_ssh_port: 12322
 # Metering agent configuration
 ######################################################
 
-# If you set these parameters, it will skip the update of resolv.conf 
+# If you set these parameters, it will skip the update of resolv.conf
 # This step is required if you want dns resolution with the consul
 # cluster. Otherwise (set to false), you must overwrite nanoconfig_service_endpoint
 # and nanoconfig_update_endpoint with IP addresses.
@@ -122,8 +122,13 @@ update_resolvconf: true
 
 # Virtual env settings for pip-install of watcher agents
 use_python_virtualenv: true
+watcher_metering_agent_version: 0.20.5
 watcher_metering_agent_virtualenv: /opt/watcher-metering-agent/venv
 
+######################################################
+# Metering driver configuration
+######################################################
+watcher_metering_drivers_version: 0.19.4.0b0
 driver_names:
   - cpu_count
   - cpu_user
@@ -181,4 +186,3 @@ messaging_port: 5672
 
 # watcher host
 watcher_api_url: http://{{ openstack_ctrl_host }}:{{ watcher_api_port }}
-

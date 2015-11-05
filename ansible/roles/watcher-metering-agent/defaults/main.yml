@@ -7,32 +7,7 @@ publisher_endpoint: watcher-metering-publisher.service.{{ watcher_dc_domain }}:{
 
 watcher_metering_config_dir: /etc/watcher-metering
 watcher_metering_agent_config_file: "{{ watcher_metering_config_dir }}/agent.conf"
-watcher_metering_drivers_config_file: "{{ watcher_metering_config_dir }}/drivers.conf"
-
 watcher_metering_service_file: /etc/init.d/watcher-metering-agent
-
-driver_names:
-  - cpu_count
-  - cpu_user
-  - cpu_idle
-  - disk_used
-  - memory_used
-  # - instance_cpu_used
-  # - disk_total
-  # - disk_free
-  # - memory_total
-  # - memory_free
-  # - swap_total
-  # - swap_used
-  # - swap_free
-  # - energy_active_energy
-  # - energy_active_power
-  # - energy_rms_current
-  # - energy_rms_voltage
-  # - energy_apparent_power
-  # - energy_power_factor
-  # - energy_on_off
-  # - energy_frequency_puller
 
 watcher_metering_pdu_servers:
   Brest: 10.50.0.151
