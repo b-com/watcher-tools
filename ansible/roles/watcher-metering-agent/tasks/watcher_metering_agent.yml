@@ -22,7 +22,7 @@
   when: use_python_virtualenv
 
 - name: Install Watcher Metering Agent without a virtualenv
-  pip: name=python-watcher_metering version={{ watcher_metering_agent_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  pip: name=python-watcher_metering version={{ watcher_metering_agent_version }} state=present
   when: not use_python_virtualenv
 # ==== End
 

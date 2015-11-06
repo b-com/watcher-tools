@@ -22,7 +22,7 @@
 
 # To force a non-stable version, add >> version="0.19.2.0b0" << to the pip command.
 - name: Install Watcher Metering Drivers without a virtualenv
-  pip: name=python-watcher_metering_drivers version={{ watcher_metering_drivers_version }} virtualenv={{ watcher_metering_agent_virtualenv }} state=present
+  pip: name=python-watcher_metering_drivers version={{ watcher_metering_drivers_version }} state=present
   when: not use_python_virtualenv
 # ==== End
 
