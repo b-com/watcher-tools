@@ -113,7 +113,7 @@ nanoconfig_update_endpoint = {{ nanoconfig_update_endpoint }}
 
 # Publisher endpoint. Used if the `use_nanoconfig_service` option is
 # not activated (string value)
-publisher_endpoint = watcher-metering-publisher.service.{{ watcher_dc_domain }}:{{ publisher_port }}
+publisher_endpoint = tcp://watcher-metering-publisher.{{ watcher_services_dns }}:{{ publisher_port }}
 
 # List of driver names the agent will dynamically spin up. (list
 # value)
