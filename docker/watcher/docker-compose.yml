@@ -1,4 +1,4 @@
-# Watcher containers for Integration Tests 
+# Watcher containers for Integration Tests
 
 mariadb:
   labels:
@@ -10,7 +10,7 @@ mariadb:
   hostname: mariadb
   extends:
     file: ../service_discovery/settings.yml
-    service: registry-node   
+    service: registry-node
   expose:
     - "22"
     - "3306"
@@ -32,9 +32,11 @@ rabbitmq:
   expose:
     - "22"
     - "5672"
+    - "15672"
   ports:
     - "10122:22/tcp"
-    - "15672:5672/tcp"
+    - "15672:15672/tcp"
+    - "25672:5672/tcp"
 
 keystone:
   labels:
@@ -56,25 +58,23 @@ keystone:
     - "5000:5000/tcp"
     - "35357:35357/tcp"
 
-
 console:
   labels:
     vendor: B<>COM
     com.b-com.watcher.description: "Console"
   environment:
     SERVICE_NAME: console
-    # KEYSTONE_NODE: 
-    # KEYSTONE_ADMIN_TOKEN: 
-    # KEYSTONE_SERVICE_TENANT_NAME: 
-    # WATCHER_API_NODE:
-    # OS_AUTH_URL: 
-    # OS_IDENTITY_API_VERSION: 
-    # OS_PROJECT_DOMAIN_ID: 
-    # OS_USER_DOMAIN_ID:
-    # OS_USERNAME: 
-    # OS_PASSWORD:
-    # OS_PROJECT_NAME:
-    # EXIT_AFTER_INIT:
+    # KEYSTONE_NODE: keystone.service.watcher.b-com.com
+    # KEYSTONE_ADMIN_TOKEN: ADMIN_TOKEN
+    # KEYSTONE_SERVICE_TENANT_NAME: service
+    # WATCHER_API_NODE: watcher.service.watcher.b-com.com
+    # OS_AUTH_URL: http://keystone.service.watcher.b-com.com:5000/v3
+    # OS_PROJECT_DOMAIN_ID: default
+    # OS_USER_DOMAIN_ID: default
+    # OS_USERNAME: admin
+    # OS_PASSWORD: 1234
+    # OS_PROJECT_NAME:admin
+    # EXIT_AFTER_INIT: false
   image: watcher/console:latest
   hostname: console
   extends:
@@ -91,15 +91,15 @@ api:
     com.b-com.watcher.description: "Watcher API service"
   environment:
     SERVICE_NAME: watcher
-    # KEYSTONE_NODE: 
-    # KEYSTONE_SERVICE_TENANT_NAME: 
-    # MARIADB_NODE: 
-    # WATCHER_MESSAGING_USER:
-    # WATCHER_MESSAGING_PASSWORD:
-    # WATCHER_MESSAGING_HOST:
-    # WATCHER_MESSAGING_PORT:
-    # DEBUG_MODE: true
-    # VERBOSE_MODE: true
+    # KEYSTONE_NODE: keystone.service.watcher.b-com.com
+    # KEYSTONE_SERVICE_TENANT_NAME: service
+    # MARIADB_NODE: mariadb.service.watcher.b-com.com
+    # WATCHER_MESSAGING_USER: guest
+    # WATCHER_MESSAGING_PASSWORD: guest
+    # WATCHER_MESSAGING_HOST: rabbitmq.service.watcher.b-com.com
+    # WATCHER_MESSAGING_PORT: 5672
+    # DEBUG_MODE: false
+    # VERBOSE_MODE: false
   image: watcher/api:latest
   hostname: watcher_api
   extends:
@@ -118,16 +118,16 @@ decision-engine:
     com.b-com.watcher.description: "Watcher Decision Engine service"
   environment:
     SERVICE_IGNORE: fake
-    # KEYSTONE_NODE: 
-    # KEYSTONE_SERVICE_TENANT_NAME: 
-    # MARIADB_NODE: 
-    # WATCHER_MESSAGING_USER:
-    # WATCHER_MESSAGING_PASSWORD:
-    # WATCHER_MESSAGING_HOST:
-    # WATCHER_MESSAGING_PORT:
-    # INFLUXDB_NODE: 
-    # DEBUG_MODE: 
-    # VERBOSE_MODE: 
+    # KEYSTONE_NODE: keystone.service.watcher.b-com.com
+    # KEYSTONE_SERVICE_TENANT_NAME: service
+    # MARIADB_NODE: mariadb.service.watcher.b-com.com
+    # WATCHER_MESSAGING_USER: guest
+    # WATCHER_MESSAGING_PASSWORD: guest
+    # WATCHER_MESSAGING_HOST: rabbitmq.service.watcher.b-com.com
+    # WATCHER_MESSAGING_PORT: 5672
+    # INFLUXDB_NODE:
+    # DEBUG_MODE: false
+    # VERBOSE_MODE: false
   image: watcher/decision-engine:latest
   hostname: watcher_de
   extends:
@@ -138,22 +138,21 @@ decision-engine:
   ports:
     - "10522:22/tcp"
 
-
 applier:
   labels:
     vendor: B<>COM
     com.b-com.watcher.description: "Watcher Applier Service"
   environment:
     SERVICE_IGNORE: fake
-    # KEYSTONE_NODE: 
-    # KEYSTONE_SERVICE_TENANT_NAME: 
-    # MARIADB_NODE: 
-    # WATCHER_MESSAGING_USER:
-    # WATCHER_MESSAGING_PASSWORD:
-    # WATCHER_MESSAGING_HOST:
-    # WATCHER_MESSAGING_PORT:
-    # DEBUG_MODE: 
-    # VERBOSE_MODE: 
+    # KEYSTONE_NODE: keystone.service.watcher.b-com.com
+    # KEYSTONE_SERVICE_TENANT_NAME: service
+    # MARIADB_NODE: mariadb.service.watcher.b-com.com
+    # WATCHER_MESSAGING_USER: guest
+    # WATCHER_MESSAGING_PASSWORD: guest
+    # WATCHER_MESSAGING_HOST: rabbitmq.service.watcher.b-com.com
+    # WATCHER_MESSAGING_PORT: 5672
+    # DEBUG_MODE: false
+    # VERBOSE_MODE: false
   image: watcher/applier:latest
   hostname: watcher_applier
   extends:
@@ -170,7 +169,7 @@ horizon:
     com.b-com.watcher.description: "Horizon OpenStack Dashboard with Watcher plugin"
   environment:
     SERVICE_NAME: horizon
-    # KEYSTONE_NODE: 
+    # KEYSTONE_NODE: keystone.service.watcher.b-com.com
   image: watcher/ui
   hostname: horizon
   extends:
