@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_e7035c0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1006507
+      },
+      "writtenOn": "2015-12-02T15:28:10Z",
+      "side": 1,
+      "message": "à revoir\n\n1ère ligne : 50 car max\n\n+ rajouter une description détaillée (72 car/ligne)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 79
+      },
+      "revId": "00dc06d262e28b884e4e5416cc1a35a08a67beb3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
