@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_a7516464",
+        "filename": "ansible/group_vars/all.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1006574
+      },
+      "writtenOn": "2015-12-02T14:46:33Z",
+      "side": 1,
+      "message": "can you set ceilometer by default?",
+      "range": {
+        "startLine": 78,
+        "startChar": 24,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "f8a6b43ddbecf2aa02ed8c896326745331672094",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
