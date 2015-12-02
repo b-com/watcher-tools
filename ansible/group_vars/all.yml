@@ -75,6 +75,7 @@ nanoconfig_server_update_port: 10900
 # watcher metering publisher host-mapped port (internally 12345)
 publisher_port: 12345
 publisher_listening_endpoint: "tcp://0.0.0.0:{{publisher_port}}"
+publisher_metric_store: ceilometer
 
 # watcher metering riemann host-mapped port (internally 5555)
 riemann_port: 5555
