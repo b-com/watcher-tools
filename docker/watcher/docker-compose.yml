@@ -197,7 +197,7 @@ nova:
     # WATCHER_MESSAGING_PORT: 5672
     # DEBUG_MODE: false
     # VERBOSE_MODE: false
-  image: /watcher/nova:latest
+  image: watcher/nova:latest
   hostname: nova-ctrl
   extends:
     file: ../service_discovery/settings.yml
