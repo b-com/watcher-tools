@@ -170,7 +170,7 @@ horizon:
   environment:
     SERVICE_NAME: horizon
     # KEYSTONE_NODE: keystone.service.watcher.b-com.com
-  image: watcher/ui
+  image: watcher/ui:latest
   hostname: horizon
   extends:
     file: ../service_discovery/settings.yml
@@ -181,6 +181,40 @@ horizon:
   ports:
     - "8000:8000"
     - "10722:22/tcp"
+
+nova:
+  labels:
+    vendor: B<>COM
+    com.b-com.watcher.description: "Nova Controller services"
+  environment:
+    SERVICE_NAME: nova
+    # KEYSTONE_NODE: keystone.service.watcher.b-com.com
+    # KEYSTONE_SERVICE_TENANT_NAME: service
+    # MARIADB_NODE: mariadb.service.watcher.b-com.com
+    # WATCHER_MESSAGING_USER: guest
+    # WATCHER_MESSAGING_PASSWORD: guest
+    # WATCHER_MESSAGING_HOST: rabbitmq.service.watcher.b-com.com
+    # WATCHER_MESSAGING_PORT: 5672
+    # DEBUG_MODE: false
+    # VERBOSE_MODE: false
+  image: /watcher/nova:latest
+  hostname: nova-ctrl
+  extends:
+    file: ../service_discovery/settings.yml
+    service: registry-node
+  expose:
+    - "22"
+    - "8773" 
+    - "8774"
+    - "8775"
+    - "6080"
+  ports:
+    - "10822:22/tcp"
+    - "8773:8773/tcp"
+    - "8774:8774/tcp"
+    - "8775:8775/tcp"
+    - "6080:6080/tcp"
+  privileged: true
 
 # tempest:
 #   environment:
