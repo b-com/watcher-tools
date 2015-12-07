@@ -26,3 +26,12 @@
 
 - name: Start watcher publisher
   shell: docker-compose -f {{ docker_compose_file_dir }}/compose-publisher.yml up -d
+
+- name: Install upstart configuration file
+  template:
+    src: watcher-metering-publisher.conf.j2
+    dest: /etc/init/watcher-metering-publisher.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution == 'Ubuntu'

@@ -1,0 +1,8 @@
+description "watcher-metering-engine"
+author "Etienne BESSON"
+start on filesystem and started docker
+stop on runlevel [!2345]
+respawn
+script
+  /usr/local/bin/docker-compose -f {{ docker_compose_file_dir }}/compose-metering-engine.yml up -d
+end script
