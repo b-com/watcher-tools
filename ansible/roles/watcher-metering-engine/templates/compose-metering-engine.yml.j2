@@ -39,7 +39,7 @@ influxdb:
     PRE_CREATE_DB: {{ influxdb_dbname }}
     INFLUXDB_PASSWORD: {{ influxdb_username }}
     INFLUXDB_USERNAME: {{ influxdb_password }}
-    # PURGE_DATADIR: 1
+    PURGE_DATADIR: {{ influxdb_purge_datadir }}
     # REPLICATION_FACTOR: 1
   volumes:
     - {{ influxdb_hostdatadir }}:/opt/datanode
