@@ -95,6 +95,7 @@ influxdb_port: 8086
 influxdb_dbname: watcher_metrics
 influxdb_username: root
 influxdb_password: root
+influxdb_purge_datadir: 1
 
 # Host data directory
 influxdb_hostdatadir: /opt/watcher-metering-data
