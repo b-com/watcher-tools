@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_a5ca184d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1006507
+      },
+      "writtenOn": "2015-12-11T09:33:27Z",
+      "side": 1,
+      "message": "Ca l\u0027air d\u0027un booléen. Pourquoi ne pas mettre plutôt comme valeur true/false ?\nc\u0027est ce qu\u0027on a fait par ailleur sur d\u0027autres fichiers docker-compose",
+      "revId": "128464ae9c0ad3b3f3afdf33f0bcb2d67ca81e68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
