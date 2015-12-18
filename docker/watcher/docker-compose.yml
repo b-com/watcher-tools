@@ -128,7 +128,7 @@ decision-engine:
     # INFLUXDB_NODE:
     # DEBUG_MODE: false
     # VERBOSE_MODE: false
-  image: watcher/decision-engine:latest
+  image: watcher/decision_engine:latest
   hostname: watcher_de
   extends:
     file: ../service_discovery/settings.yml
