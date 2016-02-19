@@ -170,7 +170,7 @@ horizon:
   environment:
     SERVICE_NAME: horizon
     # KEYSTONE_NODE: keystone.service.watcher.b-com.com
-  image: watcher/ui:latest
+  image: watcher/dashboard:latest
   hostname: horizon
   extends:
     file: ../service_discovery/settings.yml
